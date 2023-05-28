@@ -1,0 +1,47 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+    background-color: #f1f1f1;
+}
+
+#main {
+    text-align: center;
+}
+
+#imgpkm {
+    margin-bottom: 20px;
+}
+
+#imgpkm img {
+    max-width: 100%;
+    height: auto;
+}
+
+#namepkm {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+#random {
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+#random:hover {
+    background-color: #45a049;
+}
+
+@media (max-width: 768px) {
+    #main {
+        width: 80%;
+    }
+}
