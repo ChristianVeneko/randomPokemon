@@ -41,7 +41,7 @@ function randomPkm(pkms) {
   showPkms(pkm);
 }
 
-export function showPkms(pkm) {
+function showPkms(pkm) {
   const imageDiv = document.getElementById("imgpkm");
   const nameDiv = document.getElementById("namepkm");
   nameDiv.innerHTML = "";
