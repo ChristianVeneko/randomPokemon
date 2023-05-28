@@ -21,7 +21,6 @@ const pokemons= []
 
 async function createPkms() {
   const pokemons = await fetchPokemons();
-  console.log(pokemons);
   //el pokemons.map lo k esta haciendo es recorriendo cada objeto osea cada elemento del arreglo de pokemons para solo seleccionar ciertas propiedades de esos objetos y asi meterlos en objetos nuevos para un nuevo arreglo de objetos
   const simplyPkms = pokemons.map((pokemon) => {
     return {
@@ -31,7 +30,6 @@ async function createPkms() {
     };
   });
   localStorage.setItem("pokemons", JSON.stringify(simplyPkms));
-  console.log(simplyPkms);
   main();
 }
 
