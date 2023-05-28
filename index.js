@@ -1,5 +1,7 @@
 document.getElementById("random").addEventListener("click", (e) => {
   const imageDiv = document.getElementById("imgpkm");
+  const nameDiv = document.getElementById("namepkm");
+  nameDiv.innerHTML = "";
   imageDiv.innerHTML = "";
   main();
 });
@@ -7,7 +9,7 @@ document.getElementById("random").addEventListener("click", (e) => {
 async function fetchPokemons() {
 const pokemons= []
  const promises = []
- for(let i = 1; i <= 151; i ++){
+ for(let i = 1; i <= 1010; i ++){
  const url = `https://pokeapi.co/api/v2/pokemon/${i}`;
  promises.push(fetch(url))
  }
@@ -26,7 +28,7 @@ async function createPkms() {
     return {
       id: pokemon.id,
       name: pokemon.name,
-      img: pokemon.sprites.front_default,
+      img: pokemon.sprites.other["official-artwork"].front_default,
     };
   });
   localStorage.setItem("pokemons", JSON.stringify(simplyPkms));
@@ -39,15 +41,17 @@ function randomPkm(pkms) {
   showPkms(pkm);
 }
 
-function showPkms(pkm) {
+export function showPkms(pkm) {
   const imageDiv = document.getElementById("imgpkm");
+  const nameDiv = document.getElementById("namepkm");
+  nameDiv.innerHTML = "";
   imageDiv.innerHTML = "";
   const imagePkm = document.createElement("img");
   imagePkm.src = pkm.img;
   imageDiv.appendChild(imagePkm);
-  const nameDiv = document.getElementById("namepkm");
   const namePkm = document.createElement("h1");
   namePkm.innerText = pkm.name;
+  nameDiv.appendChild(namePkm);
 }
 
 if (!localStorage.getItem("pokemons")) {
