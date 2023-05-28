@@ -5,14 +5,18 @@ document.getElementById("random").addEventListener("click", (e) => {
 });
 
 async function fetchPokemons() {
-  const pokemons = [];
-  for (let i = 1; i <= 151; i++) {
-    const url = `https://pokeapi.co/api/v2/pokemon/${i}`;
-    await fetch(url)
-      .then((res) => res.json())
-      .then((data) => pokemons.push(data));
-  }
-  return pokemons;
+const pokemons= []
+ const promises = []
+ for(let i = 1; i <= 151; i ++){
+ const url = `https://pokeapi.co/api/v2/pokemon/${i}`;
+ promises.push(fetch(url))
+ }
+ const responses = await Promise.all(promises)
+ for(let response of responses){
+  const data = await response.json()
+  pokemons.push(data)
+ }
+ return pokemons
 }
 
 async function createPkms() {
